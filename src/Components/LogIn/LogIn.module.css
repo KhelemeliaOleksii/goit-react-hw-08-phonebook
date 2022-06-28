@@ -1,6 +1,6 @@
 .link {
     text-decoration: none;
-    color: black;
+    color: #ffffff;
 }
 
 .link:not(:last-of-type) {
@@ -9,6 +9,6 @@
 
 .active-link {
     composes: link;
-    color: red;
+    color: #000000;
     font-weight: 700;
 }

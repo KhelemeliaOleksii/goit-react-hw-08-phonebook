@@ -1,27 +1,33 @@
+import { createTheme, ThemeProvider } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from '@mui/material/Container';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useDispatch } from 'react-redux'
 import authOperations from "../../redux/auth/auth-operations";
 
 export default function RegisterView() {
     const dispatch = useDispatch();
-    const [nickname, setNickName] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handlerOnSubmit = (event) => {
         event.preventDefault();
-        dispatch(authOperations.register({ name: nickname, email, password }));
+        dispatch(authOperations.register({ name, email, password }));
         resetState();
     }
     const resetState = () => {
-        setNickName('');
+        setName('');
         setEmail('');
         setPassword('');
     }
     const handlerOnChange = ({ target: { name, value } }) => {
         switch (name) {
-            case 'nickname':
-                return setNickName(value);
+            case 'name':
+                return setName(value);
             case 'email':
 
                 return setEmail(value);
@@ -31,39 +37,65 @@ export default function RegisterView() {
                 return;
         }
     }
+
+    const theme = createTheme();
     return (
-        <form autoComplete="off" onSubmit={handlerOnSubmit}>
-            <label htmlFor="name-signup">
-                Name
-                <input
-                    type='text'
-                    name="nickname"
-                    value={nickname}
-                    onChange={handlerOnChange}
-                    id="name-signup"
-                />
-            </label>
-            <label htmlFor="email-signup">
-                Email
-                <input
-                    type='email'
-                    name="email"
-                    value={email}
-                    onChange={handlerOnChange}
-                    id='email-signup'
-                />
-            </label>
-            <label htmlFor="password-signup">
-                Password
-                <input
-                    type='password'
-                    name="password"
-                    value={password}
-                    onChange={handlerOnChange}
-                    id='password-signup'
-                />
-            </label>
-            <button type="submit">Sign Out</button>
-        </form>
+        <ThemeProvider theme={theme}>
+            <Container component='main' maxWidth='lg'>
+                <CssBaseline />
+                <Box
+                    sx={{
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Box component="form" onSubmit={handlerOnSubmit} noValidate sx={{ mt: 1 }}>
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="name"
+                            label="Name"
+                            name="name"
+                            autoComplete="off"
+                            autoFocus
+                            onChange={handlerOnChange}
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="off"
+                            autoFocus
+                            onChange={handlerOnChange}
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            autoComplete="off"
+                            onChange={handlerOnChange}
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                        >
+                            Register
+                        </Button>
+                    </Box>
+                </Box>
+            </Container>
+        </ThemeProvider>
     )
 }
