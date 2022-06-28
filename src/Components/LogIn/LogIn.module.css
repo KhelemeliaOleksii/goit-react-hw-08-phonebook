@@ -1,0 +1,14 @@
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.link:not(:last-of-type) {
+    margin-right: 15px;
+}
+
+.active-link {
+    composes: link;
+    color: red;
+    font-weight: 700;
+}
