@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fa33de10.css",
-    "main.js": "/static/js/main.796bdb7d.js",
+    "main.js": "/static/js/main.9dd022ba.js",
     "contactList-page.js": "/static/js/contactList-page.09d6b460.chunk.js",
     "register-page.js": "/static/js/register-page.21044252.chunk.js",
     "login-page.js": "/static/js/login-page.b18661c3.chunk.js",
@@ -9,7 +9,7 @@
     "static/js/461.f369b6c0.chunk.js": "/static/js/461.f369b6c0.chunk.js",
     "index.html": "/index.html",
     "main.fa33de10.css.map": "/static/css/main.fa33de10.css.map",
-    "main.796bdb7d.js.map": "/static/js/main.796bdb7d.js.map",
+    "main.9dd022ba.js.map": "/static/js/main.9dd022ba.js.map",
     "contactList-page.09d6b460.chunk.js.map": "/static/js/contactList-page.09d6b460.chunk.js.map",
     "register-page.21044252.chunk.js.map": "/static/js/register-page.21044252.chunk.js.map",
     "login-page.b18661c3.chunk.js.map": "/static/js/login-page.b18661c3.chunk.js.map",
@@ -18,6 +18,6 @@
   },
   "entrypoints": [
     "static/css/main.fa33de10.css",
-    "static/js/main.796bdb7d.js"
+    "static/js/main.9dd022ba.js"
   ]
 }
