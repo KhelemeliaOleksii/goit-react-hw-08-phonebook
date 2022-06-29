@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem'
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
@@ -25,16 +26,27 @@ export default function ContactList() {
             {
                 isContactExist ?
                     <Box sx={{ width: '100%' }}>
-                        <Stack spacing={2}>
+                        <List dense x={{ width: '100%' }}>
+                            {contactsToShow.map((item) => {
+                                return (
+                                    // <ListItem key={item.id}>
+                                    <ContactItem key={item.id} contact={item} />
+                                    // </ListItem>
+                                )
+                            })}
+
+                        </List>
+
+                        {/* <Stack spacing={2}>
 
                             {contactsToShow.map((item) => {
                                 return (
-                                    <Item>
-                                        <ContactItem key={item.id} contact={item} />
+                                    <Item key={item.id}>
+                                        <ContactItem contact={item} />
                                     </Item>)
                             })}
 
-                        </Stack>
+                        </Stack> */}
                     </Box>
 
                     :

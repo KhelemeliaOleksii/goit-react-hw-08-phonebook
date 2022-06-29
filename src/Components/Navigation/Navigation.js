@@ -8,11 +8,19 @@ export default function Navigation() {
     return (
         <>
             <nav>
-                <NavLink to='/' className={({ isActive }) => (isActive ?
-                    styles["active-link"] : styles['link'])}>Home</NavLink>
+                <NavLink to='/'
+                    className={({ isActive }) => (isActive ?
+                        styles["active-link"] : styles['link'])}
+                >
+                    Home
+                </NavLink>
                 {isLoggedIn &&
-                    <NavLink to='/contacts' className={({ isActive }) => (isActive ?
-                        styles['active-link'] : styles['link'])}>Gallary</NavLink>
+                    <NavLink to='/contacts'
+                        className={({ isActive }) => (isActive ?
+                            styles['active-link'] : styles['link'])}
+                    >
+                        Contacts
+                    </NavLink>
                 }
             </nav>
         </>

@@ -37,7 +37,7 @@ export default function RegisterView() {
                 return;
         }
     }
-
+    const isDisabled = !name || !email || !password;
     const theme = createTheme();
     return (
         <ThemeProvider theme={theme}>
@@ -71,7 +71,6 @@ export default function RegisterView() {
                             label="Email Address"
                             name="email"
                             autoComplete="off"
-                            autoFocus
                             onChange={handlerOnChange}
                         />
                         <TextField
@@ -90,6 +89,7 @@ export default function RegisterView() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
+                            disabled={isDisabled}
                         >
                             Register
                         </Button>
