@@ -9,6 +9,7 @@ const initialState = {
     token: null,
     isLoggedIn: false,
     isFetchingCurrentUser: true,
+    // error: null,
 }
 const authSlice = createSlice({
     name: 'auth',
@@ -18,11 +19,22 @@ const authSlice = createSlice({
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
+            // state.error = null;
+        },
+        [authOperations.register.rejected](state, action) {
+            state.user = {
+                name: null,
+                email: null,
+            };
+            state.token = null;
+            state.isLoggedIn = false;
+            // state.error = action.payload;
         },
         [authOperations.login.fulfilled](state, action) {
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
+            // state.error = null;
         },
         [authOperations.logout.fulfilled](state, action) {
             state.user = {
@@ -31,6 +43,7 @@ const authSlice = createSlice({
             };
             state.token = null;
             state.isLoggedIn = false;
+            // state.error = null;
         },
         [authOperations.fetchCurrentUser.pending](state) {
             state.isFetchingCurrentUser = true;
@@ -39,9 +52,11 @@ const authSlice = createSlice({
             state.user = action.payload;
             state.isLoggedIn = true;
             state.isFetchingCurrentUser = false;
+            // state.error = null;
         },
-        [authOperations.fetchCurrentUser.rejected](state) {
+        [authOperations.fetchCurrentUser.rejected](state, action) {
             state.isFetchingCurrentUser = false;
+            // state.error = action.payload;
         }
     },
 })
