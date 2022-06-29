@@ -8,12 +8,12 @@ export default function Navigation() {
     return (
         <>
             <nav>
-                <NavLink to='/'
+                {/* <NavLink to='/'
                     className={({ isActive }) => (isActive ?
                         styles["active-link"] : styles['link'])}
                 >
                     Home
-                </NavLink>
+                </NavLink> */}
                 {isLoggedIn &&
                     <NavLink to='/contacts'
                         className={({ isActive }) => (isActive ?

@@ -7,17 +7,16 @@ import Avatar from '@mui/material/Avatar'
 import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { contactsOperations } from '../../redux/contacts'
+import notifier from 'services/notify/notify'
 
 export default function ContactItem({ contact }) {
     const { id, name, number } = contact;
     const dispatch = useDispatch();
     const isButtonDeleteDisabled = false;
     const handlerOnClickDelete = (id) => {
-        dispatch(contactsOperations.deleteContact(id))
+        dispatch(contactsOperations.deleteContact(id));
+        notifier.success("Contact is removed");
     }
-    // const handlerOnClickUpdate = (id) => {
-    //     console.log("Update contact with id:", id);
-    // }
 
     return (
         <ListItem >
@@ -27,15 +26,6 @@ export default function ContactItem({ contact }) {
                 </ListItemAvatar>
                 <ListItemText primary={name} secondary={number} />
                 <Button variant="contained" onClick={() => handlerOnClickDelete(id)} disabled={isButtonDeleteDisabled}>Delete</Button>
-                {/* <p>{name}</p>
-                <p>{number}</p> */}
-                {/* <button type="button" >
-                    Delete
-                </button> */}
-                {/* <button type="button" onClick={() => handlerOnClickUpdate(id)} disabled>
-                Update
-            </button> */}
-
             </ListItemButton>
         </ListItem>
     )

@@ -3,7 +3,7 @@ import { authSelectors } from "../redux/auth";
 import { Navigate } from 'react-router-dom';
 // import { Navigate, useLocation } from 'react-router-dom';
 
-export default function PrivateRoute({ children, redirectTo = '/' }) {
+export default function PrivateRoute({ children, redirectTo = '/login' }) {
     /* Щоб повернутися до цієї сторінки після процедури login 
     * передаємо в location.state звідки нас перенаправило
     * - додано також в компонент, куди відбувається перенаправлення,

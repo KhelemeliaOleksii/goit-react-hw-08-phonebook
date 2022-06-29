@@ -1,14 +1,11 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useEffect, Suspense, lazy } from 'react';
-// import { useDispatch } from 'react-redux'
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
 import PrivateRoute from './PivateRoute';
 import Layout from './Layout'
 import PublicRoute from './PublicRoute';
-import Navigation from './Navigation';
 
-const HomeView = lazy(() => import('../Views/HomeView' /*webpackChunkName: 'home-page' */));
 const ContactsView = lazy(() => import('../Views/ContactsView' /* webpackChunkName: 'contactList-page' */));
 const RegisterView = lazy(() => import('../Views/RegisterView' /* webpackChunkName: 'register-page' */));
 const LoginView = lazy(() => import('../Views/LoginView' /* webpackChunkName: 'login-page' */));
@@ -23,26 +20,24 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={
-            <PublicRoute>
-              <HomeView />
-            </PublicRoute>
+            <Navigate replace to='/contacts' />
           } />
-          <Route path='contacts' element={
+          <Route path='/contacts' element={
             <PrivateRoute redirectTo='/login'>
               <ContactsView />
             </PrivateRoute>
           } />
           <Route path='register' element={
-            <PublicRoute restricted>
+            <PublicRoute restricted redirectTo='/contacts'>
               <RegisterView />
             </PublicRoute>
           } />
           <Route path='login' element={
-            <PublicRoute restricted>
+            <PublicRoute restricted redirectTo='/contacts'>
               <LoginView />
             </PublicRoute>
           } />
-          <Route path='*' element={<Navigation replace to='/' />} />
+          <Route path='*' element={<Navigate replace to='/' />} />
         </Route>
       </Routes>
     </Suspense>

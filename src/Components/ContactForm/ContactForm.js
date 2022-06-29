@@ -54,7 +54,6 @@ export default function ContactForm() {
     const reset = () => {
         setName('');
         setNumber('');
-        console.log("Reset finished!");
     }
     const theme = createTheme();
 
@@ -90,7 +89,9 @@ export default function ContactForm() {
                         value={number}
                         onChange={handlerOnChange}
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        inputProps={{ pattern: "\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}" }}
+                        inputProps={{ pattern: "\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}" }}
+                    // inputProps={{ pattern: "\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}" }}
+
                     />
                     <Button
                         type="submit"

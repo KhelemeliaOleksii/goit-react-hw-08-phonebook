@@ -62,6 +62,11 @@ export default function RegisterView() {
                             autoComplete="off"
                             autoFocus
                             onChange={handlerOnChange}
+                            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                            inputProps={{
+                                pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+                            }}
+
                         />
                         <TextField
                             margin="normal"
