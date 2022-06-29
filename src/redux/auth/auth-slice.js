@@ -8,7 +8,7 @@ const initialState = {
     },
     token: null,
     isLoggedIn: false,
-    isFetchingCurrentUser: true,
+    isFetchingCurrentUser: false,
     // error: null,
 }
 const authSlice = createSlice({
