@@ -19,7 +19,7 @@ const register = createAsyncThunk('auth/register', async (credentials, thunkAPI)
         return data;
     } catch (error) {
         notifier.error("Error in registration procedure")
-        return thunkAPI.rejectWithValue(error);
+        return thunkAPI.rejectWithValue(error.message);
     }
 })
 
@@ -30,7 +30,7 @@ const login = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
         return data;
     } catch (error) {
         notifier.error("Error in login procedure")
-        return thunkAPI.rejectWithValue(error);
+        return thunkAPI.rejectWithValue(error.message);
     }
 })
 
@@ -40,7 +40,7 @@ const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
         token.unset();
     } catch (error) {
         notifier.error("Error in logout procedure")
-        return thunkAPI.rejectWithValue(error);
+        return thunkAPI.rejectWithValue(error.message);
     }
 })
 
@@ -56,7 +56,7 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
         return data;
     } catch (error) {
         notifier.error("Error in authentication procedure")
-        return thunkAPI.rejectWithValue(error);
+        return thunkAPI.rejectWithValue(error.message);
     }
 })
 
