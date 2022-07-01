@@ -27,11 +27,11 @@ function App() {
               <ContactsView />
             </PrivateRoute>
           } />
-          <Route path='/register' element={
+          {/* <Route path='/register' element={
             <PublicRoute restricted redirectTo='/contacts'>
               <RegisterView />
             </PublicRoute>
-          } />
+          } /> */}
           <Route path='/login' element={
             <PublicRoute restricted redirectTo='/contacts'>
               <LoginView />
