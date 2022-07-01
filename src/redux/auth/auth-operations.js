@@ -55,7 +55,7 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
         const { data } = await axios.get('/users/current');
         return data;
     } catch (error) {
-        notifier.error("Error in authentication procedure")
+        // notifier.error("Error in authentication procedure")
         return thunkAPI.rejectWithValue(error.message);
     }
 })
